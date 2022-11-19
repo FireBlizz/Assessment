@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title> <!--the title for the page shown on the Tab-->
+    <link rel="stylesheet" type="text/css" href="css/style.css"> <!--used css-->
+</head>
+<body>
+    <div class="nav-bar">
+      <img src="images/created.png" alt="Image 1" style="width:5%;"> <!--my created image-->
+    </div>
+
+
+    <div id="app"> <!-- the div for the app, all the java for Vue works in this-->
+        <div class="cart">
+          <p>Cart({{ cart.length }})</p> <!--the cart, increases with how many items you put in-->
+        </div>
+        <product :premium="premium" @add-to-cart="updateCart" @add-to-cost="updateCost"></product>    <!--puts most of the html code in this along with a few other things-->
+        <div>
+          <p>Total: ${{total}}</p>
+          <ul>
+            <li v-for="detail in cost">{{ detail }}</li> 
+          </ul>
+        </div>
+      </div>
+
+<!-- all the java is scripted below, at the end of the page for better loading/quaility-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="java/main.js"></script>
+</body>
+</html>
